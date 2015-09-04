@@ -1,0 +1,108 @@
+<div class="main-partner-profile">
+    <div class="row">
+        <div class="profile-data col-sm-8">
+            <div class="title col-sm-12">{{vm.partnerProfile.companyName}}<span class="non-compliant"> (Out of compliance)</span></div>
+            <div class="address street col-sm-12">{{vm.partnerProfile.street}}</div>
+            <div class="address city-state-zip col-sm-12">{{vm.partnerProfile.address}}</div>
+            <div class="address country col-sm-12">{{vm.partnerProfile.country}}</div>
+            <div class="website col-sm-12">
+                <a class="page-link" >{{vm.partnerProfile.website}}</a>
+            </div>
+           
+            <div class="email col-sm-12"><i class="fa fa-envelope icon-front"></i><a class="page-link" href="mailto:{{vm.partnerProfile.email}}">{{vm.partnerProfile.email}}</a></div>
+            <div class="p-numbers phone col-sm-12"><i class="fa fa-phone icon-front"></i><span>{{vm.partnerProfile.phone}}</span></div>
+            <div class="p-numbers fax col-sm-12"><i class="fa fa-facebook icon-front"></i><span>{{vm.partnerProfile.fax}}</span></div>
+   
+            <div class="description col-sm-12">{{vm.partnerProfile.description}}</div>
+        </div>
+        <div class="partner-data col-sm-4">
+            <div class="duns col-sm-8">DUNS:<strong> {{vm.partnerProfile.duns}}</strong></div>
+            <div class="icix-id col-sm-4">ICIX ID:<strong> {{vm.partnerProfile.icixId}}</strong></div>
+            <div class="partner-logo">
+                <img class="partner-logo" ng-src="{{vm.partnerProfile.logoUrl}}" />
+            </div>
+        </div>
+        <div class="col-sm-12 lists"> 
+            <div class="two-col-list col-sm-4 list-box">
+                <div class="row list-title-box">
+                    <div  ng-show="vm.showSearchProducts !== true" class="list-title sample-show-hide">Products<span class="list-count"> ({{vm.partnerProfile.products.length}})</span></div>
+                    <input ng-show="vm.showSearchProducts === true" class="search-box form-control sample-show-hide" type="text" ng-model="vm.searchProducts" />
+                    <div ng-click="(vm.showSearchProducts === true) ? vm.showSearchProducts = false : vm.showSearchProducts = true" ng-class="(vm.showSearchProducts === true)? 'list-filter-active' : '' " class="list-filter"><i class="fa fa-search"></i></div>
+                    <div ng-show="vm.showSearchProducts === true" class="small-x sample-show-hide" ng-click="vm.searchProducts = ''; vm.showSearchProducts = false;">x</div>
+                </div>
+                <table class="list-table-adjust" >
+                    <tr>
+                        <th class="title-row" >
+                            <a class="col-sort" ng-click="vm.sortProductType = 'name'; vm.sortProductReverse = !vm.sortProductReverse">Name
+                                <span ng-show="vm.sortProductType == 'name' && !vm.sortProductReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="vm.sortProductType == 'name' && vm.sortProductReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="title-row text-right" >
+                            <a class="col-sort" ng-click="vm.sortProductType = 'status'; vm.sortProductReverse = !vm.sortProductReverse">Status
+                                <span ng-show="vm.sortProductType == 'status' && !vm.sortProductReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="vm.sortProductType == 'status' && vm.sortProductReverse" class="fa fa-caret-up"></span>
+                            </a></th>
+                    </tr>
+                    <tr ng-repeat="product in vm.partnerProfile.products | orderBy:vm.sortProductType:vm.sortProductReverse | filter:vm.searchProducts">
+                        <td><a class="page-link" ng-href="/{{product.id}}">{{product.name}}</a></td>
+                        <td class="text-right status-active" >{{product.status}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="two-col-list col-sm-4 list-box">
+                <div class="row list-title-box">
+                    <div ng-show="vm.showSearchDocuments !== true" class="list-title sample-show-hide">Documents<span class="list-count"> ({{vm.partnerProfile.documents.length}})</span></div>
+                    <input ng-show="vm.showSearchDocuments === true" class="search-box form-control sample-show-hide" type="text" ng-model="vm.searchDocuments" />
+                    <div ng-click="(vm.showSearchDocuments === true) ? vm.showSearchDocuments = false : vm.showSearchDocuments = true" ng-class="(vm.showSearchDocuments === true)? 'list-filter-active' : '' " class="list-filter"><i class="fa fa-search"></i></div>
+                    <div ng-show="vm.showSearchDocuments === true" class="small-x sample-show-hide" ng-click="vm.searchDocuments = ''; vm.showSearchDocuments = false">x</div>
+                </div>
+                <table class="list-table-adjust" >
+                    <tr>
+                        <th class="title-row">
+                            <a class="col-sort" ng-click="vm.sortDocumentType = 'name'; vm.sortDocumentReverse = !vm.sortDocumentReverse">Name
+                                <span ng-show="vm.sortDocumentType == 'name' && !vm.sortDocumentReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="vm.sortDocumentType == 'name' && vm.sortDocumentReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="title-row text-right">
+                            <a class="col-sort" ng-click="vm.sortDocumentType = 'status'; vm.sortDocumentReverse = !vm.sortDocumentReverse">Status
+                                <span ng-show="vm.sortDocumentType == 'status' && !vm.sortDocumentReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="vm.sortDocumentType == 'status' && vm.sortDocumentReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="document in vm.partnerProfile.documents | orderBy:vm.sortDocumentType:vm.sortDocumentReverse | filter:vm.searchDocuments">
+                        <td><a class="page-link">{{document.name}}</a></td>
+                        <td class="text-right status-active" >{{document.status}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="two-col-list col-sm-4 list-box">
+                <div class="row list-title-box">
+                    <div ng-show="vm.showSearchGroups !== true" class="list-title sample-show-hide">Groups<span class="list-count"> ({{vm.partnerProfile.groups.length}})</span></div> 
+                    <input ng-show="vm.showSearchGroups === true" class="search-box form-control sample-show-hide" type="text" ng-model="vm.searchGroups" />
+                    <div ng-click="(vm.showSearchGroups === true) ? vm.showSearchGroups = false : vm.showSearchGroups = true" ng-class="(vm.showSearchGroups === true)? 'list-filter-active' : '' " class="list-filter"><i class="fa fa-search"></i></div>
+                    <div ng-show="vm.showSearchGroups === true" class="small-x sample-show-hide" ng-click="vm.searchGroups = ''; vm.showSearchGroups = false" >x</div>
+                </div>
+                <table class="list-table-adjust" >
+                    <tr>
+                        <th class="title-row">
+                            <a class="col-sort" ng-click="vm.sortGroupType = 'name'; vm.sortGroupReverse = !vm.sortGroupReverse">Name
+                                <span ng-show="vm.sortGroupType == 'name' && !vm.sortGroupReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="vm.sortGroupType == 'name' && vm.sortGroupReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="group in vm.partnerProfile.groups | orderBy:vm.sortGroupType:vm.sortGroupReverse | filter:searchGroups" >
+                        <td><a class="page-link">{{group.name}}</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="compliance-list col-sm-12">
+            <div class="compliance-title col-sm-12">Compliance/Incidents<span>({{vm.partnerProfile.incidents.length}})</span></div>
+            <a ng-repeat="incident in vm.partnerProfile.incidents" class="page-link col-sm-12">{{incident.name}}</a>
+        </div>
+    </div>
+</div>

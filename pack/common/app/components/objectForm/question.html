@@ -1,0 +1,25 @@
+<div ng-show="qvm.vm.isDisplayed(qvm.prop.key)">
+    <label class="fieldLabel" for="{{qvm.prop.key}}">{{qvm.prop.description || qvm.prop.label}} 
+        <i class="inlineHelp fa fa-info-circle" title="{{qvm.vm.showDebug ? qvm.prop.name + ' (' + qvm.prop.type + ') ' + qvm.prop.inlineHelpText : qvm.prop.inlineHelpText}}"></i>
+    </label> 
+    <span ng-show="qvm.vm.showDebug">/ {{qvm.prop.key}}{{qvm.prop.name == qvm.prop.key ? "" : "/ " + qvm.prop.name}}</span>
+    <span ng-if="!qvm.vm.isUpdateable(qvm.prop.key)">{{formatValue(qvm.prop)}}</span>
+    <br ng-if="qvm.vm.isUpdateable(qvm.prop.key)  && qvm.prop.type=='textarea'"/>
+
+    <input id="{{qvm.prop.key}}" type="text" ng-if="qvm.vm.isUpdateable(qvm.prop.key) && !qvm.vm.isPicklist(qvm.prop.key) && qvm.prop.type!='textarea'" maxlength="{{qvm.prop.length}}" ng-model="qvm.vm.formData[qvm.prop.key]"/>
+
+    <textarea id="{{qvm.prop.key}}" ng-if="qvm.vm.isUpdateable(qvm.prop.key) && qvm.prop.type=='textarea'" ng-model="qvm.vm.formData[qvm.prop.key]" cols="60" maxlength="{{qvm.prop.length}}"></textarea>
+
+    <div ng-if="qvm.vm.isUpdateable(qvm.prop.key) && qvm.vm.isPicklist(qvm.prop.key)">
+        <div class="radioOption" ng-repeat="opt in qvm.prop.picklistValues">            
+          <input type="radio" id="rd_{{qvm.prop.key}}_{{$index}}" ng-model="qvm.vm.formData[qvm.prop.key]" ng-value="opt.value"/>
+          <label for="rd_{{qvm.prop.key}}_{{$index}}"></label>
+          {{opt.label}}  <span ng-show="qvm.vm.showDebug">/ {{opt.value}}</span>
+
+            <!--div ng-repeat="n in qvm.getNested(opt.value)">{{n}}
+                <question vm="qvm.vm" prop="qvm.property(n)"/>
+            </div-->
+ 
+        </div>
+    </div>
+</div>

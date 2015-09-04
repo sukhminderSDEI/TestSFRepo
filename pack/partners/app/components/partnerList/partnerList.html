@@ -1,0 +1,32 @@
+<div class="partner-list-container">
+	<h3>Your partners<span class="counter">({{vm.partnerList == undefined ? 0 : vm.partnerList.length}})</span></h3>
+	<div class="search-box">
+		<i class="glyphicon glyphicon-search" ng-class="{'searching-icon': vm.query.length > 0}"></i>
+ 		<input type="text" class="form-control search" ng-class="{'searching-field': vm.query.length > 0}" placeholder="Search ICIX Partner Network" ng-model="vm.query" ng-change="onsearchchange()" />
+ 		<input class="reset" type="button" ng-if="vm.query.length > 0" ng-click="resetsearch()"></input>
+	</div>
+	<div ng-if="vm.partnerList.length == 0" class="no-data">
+    	<span class="no-partners">There are currently no partners</span>
+	</div>
+	<div ng-if="vm.partnerList.length > 0">
+		<ul class="partner-list">
+			<li ng-repeat="partner in vm.partnerList" class="partner">
+				<div ng-if="partner.logoUrl === undefined || partner.logoUrl.length == 0" class="logo">
+					<span>No image</span>
+				</div>
+				<div ng-if="partner.logoUrl.length > 0" class="logo">
+					<!--<img src="{{partner.logoUrl}}"></img>-->
+					<img src="https://developer.salesforce.com/resource/images/home-col-33x33-cloud.png"></img>
+				</div>
+				<div class="info">
+					<div class="name">{{partner.name}}</div>
+					<div class="details">{{partner.address.street + ' ' + partner.address.city}}</div>
+					<div class="details">
+						<span>ICIX ID: {{partner.icixId}}</span>
+						<span class="relationship">Relationship: <span class="status {{partner.status}}">{{partner.status | uppercase}}</span></span>
+					</div>
+				</div>			
+			</li>
+		</ul>
+	</div>
+</div>

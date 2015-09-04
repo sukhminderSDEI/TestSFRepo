@@ -1,0 +1,16 @@
+<div>
+	<div class="header">
+		<button class="close" ng-click="vm.closeRejectDialog()"></button>
+		<h3>Connection rejection</h3>
+	</div>
+	<div class="select left-attached">
+		<select class="form-control">
+			<option value='' disabled selected style='display:none;'>Please select a reason</option>
+		</select>	
+    	<i class="glyphicon glyphicon-triangle-bottom toggle"></i>
+	</div>
+	<div class="buttons">
+		<button class="btn btn-primary" ng-click="vm.reject(task)">Send</button>
+		<button class="btn btn-link" ng-click="vm.closeRejectDialog()">Cancel</button>
+	</div>
+</div>

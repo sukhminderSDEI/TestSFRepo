@@ -1,0 +1,80 @@
+<div class="add-partner-form">
+	<div class="header">
+		<h3>Add a Partner</h3>
+		<button class="close" onclick="mainVm.setScreen(mainVm.ScreenEnum.Main); avm.init()"></button>
+	</div>
+	<form>
+		<div class="row">
+			<div class="form-group cell left-far">
+				<label>Company name</label>
+				<input class="form-control big" type="text" id="companyName" ng-model="avm.newPartner.name"></input>			
+			</div>
+			<div class="form-group cell left-far">
+				<label style="display: block">Universal ID</label>
+				<div class="select left-attached">
+					<select class="form-control" ng-options="type for type in avm.typesList" ng-model="avm.newPartner.idType">
+						<option value='' disabled selected style='display:none;'>Type</option>
+					</select>		
+			    	<i class="glyphicon glyphicon-triangle-bottom toggle"></i>
+	    		</div>
+				<input class="form-control right-attached" type="text" ng-model="avm.newPartner.universalId"></input>	
+			</div>
+			<div class="form-group cell">
+				<label>ICIX ID</label>
+				<input class="form-control small" type="text" ng-model="avm.newPartner.icixId"></input>	
+			</div>
+		</div>
+		<div class="form-group block">
+			<label>Address</label>
+			<input class="form-control big" type="text" placeholder="Street" ng-model="avm.newPartner.address.street"></input>
+			<input class="form-control big" type="text" placeholder="City" ng-model="avm.newPartner.address.city"></input>
+			<div class="row big" style="margin-top: 0">
+				<input class="form-control cell medium left-close" type="text" placeholder="State/Province/Region" ng-model="avm.newPartner.address.state"></input>
+				<input class="form-control cell small" type="text" placeholder="ZIP/Postal Code" ng-model="avm.newPartner.address.postCode"></input>
+			</div>
+			<div class="select medium">
+				<select class="form-control medium" ng-model="avm.newPartner.address.country">
+						<option value='' disabled selected style='display:none;'>Country</option>
+						<option value='US'>US</option>
+						<option value='GB'>GB</option>
+				</select>		
+		    	<i class="glyphicon glyphicon-triangle-bottom toggle"></i>
+	    	</div>
+		</div>
+		<div class="form-group">
+			<label>Primary contact email</label>
+			<input class="form-control medium" type="email" ng-model="avm.newPartner.email"></input>
+		</div>
+		<div class="form-group row">
+			<label>Phone number</label>
+			<div>
+				<input class="form-control cell x-small left-close" type="text" placeholder="(xxx)" ng-model="avm.newPartner.phone1"></input>
+				<input class="form-control cell xx-small left-close" type="text" placeholder="xxx" ng-model="avm.newPartner.phone2"></input>
+				<span class="left-close">-</span>
+				<input class="form-control cell x-small " type="text" placeholder="xxxx" ng-model="avm.newPartner.phone3"></input>
+			</div>
+		</div>	
+		<div class="form-group row">
+			<label>Fax number</label>
+			<div>
+				<input class="form-control cell x-small left-close" type="text" placeholder="(xxx)" ng-model="avm.newPartner.fax1"></input>
+				<input class="form-control cell xx-small left-close" type="text" placeholder="xxx" ng-model="avm.newPartner.fax2"></input>
+				<span class="left-close">-</span>
+				<input class="form-control cell x-small " type="text" placeholder="xxxx" ng-model="avm.newPartner.fax3"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Partner type</label>
+			<div class="select medium">	
+				<select class="form-control medium" ng-options="type for type in avm.partnerTypesList">
+					<option value='' disabled selected style='display:none;'>Select</option>
+				</select>
+				<!--<select class="form-control medium" ng-options="type for type in avm.partnerTypesList" ng-model="avm.newPartner.partnerType">
+						<option value='' disabled selected style='display:none;'>Select</option>
+				</select>-->				
+		    	<i class="glyphicon glyphicon-triangle-bottom toggle"></i>
+	    	</div>
+		</div>
+		<button type="submit" class="btn btn-info action" onclick="mainVm.setScreen(mainVm.ScreenEnum.PartnerMatches); mvm.init()">Save</button>
+	</form>
+</div>

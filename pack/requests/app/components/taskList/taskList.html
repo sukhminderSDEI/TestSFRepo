@@ -1,0 +1,33 @@
+<div class="task-list">
+	<h3>Tasks<span class="counter" ng-show="vm.tasks.newRequests > 0">{{vm.tasks.newRequests}} new</span></h3>
+	<div ng-if="!vm.tasks[0]" class="no-data">
+    	<span class="no-tasks">There are currently no tasks</span>
+	</div>
+	<div ng-if="vm.tasks[0]">
+		<div ng-repeat="task in vm.tasks.slice(0, 6)" class="task" ng-class="{'new': task.requestStatus == 'New'}">
+			<div ng-if="task.requestType == 'Partnership'" class="partnership">
+				<div class="date">{{task.createdDate}}</div>
+				<div class="title important">{{task.requestorName}} is requesting to connect with you</div>
+				<div class="extendet buttons">
+					<button class="btn btn-primary" ng-click="vm.accept(task)">Accept</button>
+					<button class="btn btn-default" ng-click="vm.openRejectDialog(task)">Reject</button>
+					<span class="option">
+						<label><input type="checkbox" ng-model="task.isReciprocal">Make connection reciprocal</label>
+					</span>
+				</div>
+			</div>
+			<div ng-if="task.requestType != 'Partnership'">
+				<div class="date">{{task.createdDate}}</div>
+				<div class="title">{{task.title}} for <span class="important">{{task.requestorName}}</span></div>
+				<span class="glyphicon glyphicon-comment message"></span>
+				<div class="extendet" ng-show="task.comments != null">
+					<div class="comments">{{task.comments}}</div>
+					<div class="attachments">{{task.attachments}}</div>
+					<div class="dueDate">Due date<br/>
+						<div class='date'>{{task.dueDate}}</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<center><div class="show-all">View all {{vm.tasks.length}} tasks</div></center>
+</div>

@@ -1,0 +1,5 @@
+<div class="main-objects">
+     <div class="list-group">
+        <a ng-repeat="cmObject in vm.customMetadataObjects" ng-click="vm.setSelectObject($index);" class="list-group-item  {{(vm.selectedObject.name === cmObject.name) ? 'active' :''}}">{{cmObject.label}}</a>
+    </div>
+</div>

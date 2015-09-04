@@ -1,0 +1,18 @@
+<div class="main-container">
+	<nav-bar></nav-bar>
+    <div class="row" ng-show="mainVm.currentScreen == mainVm.ScreenEnum.Main">
+        <div class="col-md-4">
+        	<div class="separated">
+            	<partner-list/>
+            </div>
+        </div>
+        <div class="col-md-8">
+	        <partner-actions/>
+        </div>
+    </div>
+    <partner-add ng-show="mainVm.currentScreen == mainVm.ScreenEnum.PartnerAdd"></partner-add>
+    <partner-matches ng-show="mainVm.currentScreen == mainVm.ScreenEnum.PartnerMatches"></partner-matches>
+    <partner-groups ng-show="mainVm.currentScreen == mainVm.ScreenEnum.PartnerGroups"></partner-groups>
+    <partner-group-edit ng-show="mainVm.currentScreen == mainVm.ScreenEnum.EditGroup"></partner-group-edit>
+    <partner-group-add ng-show="mainVm.currentScreen == mainVm.ScreenEnum.AddGroup"></partner-group-add>
+</div>

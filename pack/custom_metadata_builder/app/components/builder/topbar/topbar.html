@@ -1,0 +1,10 @@
+<div class="topbar-adjust">
+    <div class="objects">Object<span ng-click="vm.addNewObject()" class="glyphicon glyphicon-plus add-right"></div>
+    <div class="fields">Fields<span ng-click="vm.addNewField()" class="glyphicon glyphicon-plus add-right"></div>
+    <div class="records">Records<span ng-click="vm.addNewRecord()" class="glyphicon glyphicon-plus add-right"></div>
+    <div ng-if="vm.deploymentStatus.state === 'clean'" class="status-details"><span class="glyphicon glyphicon-ok-circle"></span></div>
+    <div ng-if="vm.deploymentStatus.state === 'active' || vm.deploymentStatus.state === 'saving'" class="status-details active"><span class="glyphicon glyphicon-adjust"></span></div>
+    <div class="saving" ng-if="vm.deploymentStatus.state === 'saving'" ><div class="loader">Loading...</div></div>
+    <input ng-model="vm.orgData.packages" type="text" class="form-control input-sm package" ng-blur="vm.rebuildAllData();" placeholder="Enter Package name or 'unpackaged'">  
+    <div ng-if="vm.deploymentStatus.state !== 'clean' && vm.deploymentStatus.state !== 'saving'" ng-click="vm.saveChanges()" class="save"><span class="glyphicon glyphicon-save"></span>&nbsp;Save</div>
+</div>

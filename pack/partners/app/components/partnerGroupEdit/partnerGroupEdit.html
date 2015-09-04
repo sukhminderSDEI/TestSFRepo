@@ -1,0 +1,55 @@
+<div class="group-edit">
+    <div class="header">
+        <p>Name your group</p>
+        <input type="text" class="name" ng-model="evm.selectedGroup.Name">
+        <button class="close" onclick="mainVm.setScreen(mainVm.ScreenEnum.PartnerGroups)"></button>
+    </div>
+    <div class="сontainer-fluid">
+        <div class="row columns">
+            <div class="column col-md-4 right-shadow">
+                <div class="row">
+                    <div class="column col-md-4 tabs">
+                        <div class="tab" ng-class="{'selected-tab': evm.selectedTab == tab}" ng-repeat="tab in evm.tabs" ng-click="evm.selectTab(tab)">
+                            <div class="title">
+                                <div class="icon glyphicon {{tab.icon}}"></div>
+                                <p>{{tab.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column col-md-8 attributes">
+                        <ul>
+                            <li class="attribute" ng-repeat="attribute in evm.selectedTab.attributes" ng-click="evm.selectAttribute(attribute)" ng-class="{'selected-attribute': evm.selectedAttribute == attribute}">
+                                <div>
+                                    <span>{{attribute.Name}}<span ng-if="attribute.checkedValuesCount > 0"> ({{attribute.checkedValuesCount}})</span></span>
+                                    <div class="glyphicon glyphicon-menu-right details" ng-class="{hidden: evm.selectedAttribute != attribute}"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column col-md-4 values">
+                <ul ng-if="evm.selectedAttribute.Name == 'Status' || evm.selectedAttribute.Name == 'Type'">
+                    <li class="value" ng-repeat="value in evm.selectedAttribute.values">
+                        <div class="checkbox checkbox-primary">
+                            <label><input type="checkbox" ng-model="value.checked" ng-click="evm.onChanged(evm.selectedGroup)">{{value.name}}</label>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-if="evm.selectedAttribute.Name != 'Status' && evm.selectedAttribute.Name != 'Type'" class="value">
+                    <input type="text" ng-model="value.name" ng-blur="evm.onChanged(evm.selectedGroup)">
+                </div>
+            </div>
+            <div class="column col-md-4 summary left-shadow">
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary action" ng-click="evm.save(evm.selectedGroup)">Save</button>
+                    <button type="button" class="btn btn-default action" ng-click="evm.openDeleteDialog(evm.selectedGroup); $event.stopPropagation()">Delete</button>
+                </div>
+                <div class="conclusion">
+                    <p>In this group:</p>
+                    <p class="partners">{{evm.selectedGroup.members.length}} partners</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

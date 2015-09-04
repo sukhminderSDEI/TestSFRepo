@@ -1,0 +1,31 @@
+*.properties
+.project
+.settings
+salesforce.schema
+Referenced Packages
+src/package.xml
+config
+resource-bundles
+*.txt
+*.sh
+build.xml
+*.sublime-settings
+*.sublime-projects
+*.sublime-project
+*.sublime-workspace
+*.log
+node_modules
+#eclipse config
+salesforce-schema
+Referenced Package
+jsforce.config.js
+tmpsrc
+retrieveUnpackaged
+coverage
+packaged
+package_merge.xml
+.DS_Store
+DS_Store
+uninstallsrc
+uninstall
+build.properties.rajesh

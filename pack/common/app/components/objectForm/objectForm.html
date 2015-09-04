@@ -1,0 +1,23 @@
+<div class="container object-form">
+	<p class="h3">{{vm.title}}</p>
+	<p class="">{{vm.intro}}</p>
+	<span ng-show="vm.showDebug">recordId:{{vm.recordId}}
+	&nbsp;initValues:{{vm.initValues}}</span>
+
+    <div ng-repeat="prop in vm.properties">
+        <question vm="vm" prop="prop"/>
+    </div>
+    <br/>
+    <div>
+        <button id="btnSubmit" class="btn blue-button large-button" ng-class="{disabled: !vm.isFormComplete()}"  ng-click="vm.saveForm()">Submit</button>
+        <button id="btnCancel" class="btn white-button large-button" ng-click="" type="button">Cancel</button>
+        <button id="btnReload" class="btn white-button large-button" ng-click="vm.loadFormValues()" ng-show="vm.showDebug">Reload</button>
+        {{step}}
+        <a ng-click="vm.showDebug = !vm.showDebug">debug</a>
+    </div>
+    <div ng-show="vm.showDebug">
+    status: <pre>{{vm.status}}</pre>
+    formDataJson: <pre>{{vm.formDataJson()}}</pre>
+    recordDataJson: <pre>{{vm.recordDataJson()}}</pre>
+    </div>
+</div>

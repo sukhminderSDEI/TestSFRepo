@@ -1,0 +1,51 @@
+<div class="main-workspace">
+        <!-- object dom -->
+        <div class="well well-lg col-xs-12">
+            <div class="page-header">
+                <h4>Object - {{vm.selectedObject.name}}</h4>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Object FullName</label>
+                <input ng-model="vm.selectedObject.name" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter full name" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Object Label</label>
+                <input ng-model="vm.selectedObject.label" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter object label" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Object Plural Label</label>
+                <input ng-model="vm.selectedObject.pluralLabel" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter object plural label" />
+            </div>
+        </div>
+
+        <!-- field dom -->
+        <cm-field selected-field="vm.selectedField" deployment-status="vm.deploymentStatus"></cm-field>
+
+        <!-- records dom -->
+        <div class="well well-lg col-xs-12">
+            <div class="page-header">
+                <h4>Records - {{vm.selectedRecord.name}}</h4>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Record Name</label>
+                <input ng-model="vm.selectedRecord.name" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter full name" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Record Label</label>
+                <input ng-model="vm.selectedRecord.label" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter record label" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Record Description</label>
+                <textarea ng-model="vm.selectedRecord.description" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter a discription of the record" />
+            </div>
+            <div ng-repeat="value in vm.selectedRecord.values">
+                <div class="form-group">
+                    <label class="control-label">Record Value for {{value.name}}</label>
+                    <input ng-model="value.value" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter record value" />
+                </div>
+            </div>
+        </div>
+
+
+    
+</div>

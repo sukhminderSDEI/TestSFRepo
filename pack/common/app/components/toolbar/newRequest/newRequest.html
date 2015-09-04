@@ -1,0 +1,41 @@
+<div class="main-new-request" ng-class="vm.states.showRequestForm">
+    <div class="request-form" ng-class="vm.states.showRequestForm">
+        <div class="exit-button-top-right">       
+            <div class="exit-button" ng-click="vm.closeNewRequest()">&times;</div>
+        </div>
+        <div class="row recip-box">
+            <div class="col-sm-12">
+                <div>
+                    <div class="main-form-header">New request/Incident form</div>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="recipients">Recipient(s)<span class="red-star">*</span></label>
+                        <auto-complete recipients="vm.recipients" search="vm.search" ></auto-complete>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachments">Attachent(s)<span class="red-star">*</span></label>
+                        <button id="attachments" ng-click="vm.showList.value = true;" type="button" class="btn white-button small-button">Browse</button>
+                        <div class="attachemnt-list">
+                            <div class="doc-attachment" ng-repeat="attachment in vm.selectedAttachments">
+                                <a class="selected-attachments">{{attachment}}&nbsp;</a><span class="remove-doc" ng-click="vm.selectedAttachments.splice($index,1);" >x</span>
+                            </div>  
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label for="due-date">Due Date<span class="red-star">*</span></label>
+                        <input type="date" id="due-date" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <textarea id="comments" rows="4" class="form-control" ></textarea>
+                    </div>
+                    <div class="submit-bar">
+                        <button type="button" ng-click="vm.closeNewRequest();" class="btn blue-button large-button">Submit</button>
+                        <button type="button" ng-click="vm.closeNewRequest();" class="btn white-button large-button">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

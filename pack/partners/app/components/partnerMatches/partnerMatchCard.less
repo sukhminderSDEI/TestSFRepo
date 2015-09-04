@@ -1,0 +1,91 @@
+@blue: #3B97D3;
+@light-grey: #C5C9CD;
+
+.match-card{
+    width: 225px;
+    float: left;
+	padding: 30px 15px 20px;
+    margin: 0 10px 10px 0;
+	border: 1px solid @light-grey;
+    border-radius: 5px;
+    font-size: 11px;
+
+    :last-element{
+    	margin: 0;
+    }
+
+	h4{
+		font-size: 12px;
+		margin: 0px;
+	}
+
+	p{
+		margin: 0px;
+	}
+
+	.icon{
+		margin-right: 2px;
+	}
+
+	.contacts{
+		margin: 20px 0;
+
+		.email{
+	    	color: @blue;
+	    }
+	}
+
+    .id{
+    	font-weight: bold;
+    	margin-right: 4px; 
+    }
+
+    .footer{
+	    margin-top: 60px;
+
+	    .btn{
+	    	padding: 10px 25px;
+	    	outline: 0px !important;
+	    	border-radius: 10px;
+	    	float: left;
+	    }
+
+	    .btn-create{
+	    	background-color: transparent;
+	   		border-color: #ACACAC;
+	    }
+
+	    .btn-connect{
+	        background-color: #3B97D3;
+	        color: white;
+	        font-weight: bold;
+	    }
+
+	    .match{
+	    	float: left;
+	    	margin: 5px 0 0 10px;
+
+	    	.percentage{
+    			line-height: 20px;
+
+	    		span{
+	    			font-size: 24px;
+	    			font-weight: bold;
+	    			vertical-align: top;
+	    		}
+	    	}
+
+	    	.red{
+    			color: #C00;
+	    	}
+
+	    	.orange{
+    			color: #F47E1F;
+	    	}
+
+	    	.green{
+    			color: #51A528;
+	    	}
+	    }
+	}
+}

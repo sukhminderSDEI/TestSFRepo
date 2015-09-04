@@ -1,0 +1,5 @@
+<div class="main-records">
+    <div class="list-group">
+          <a ng-repeat="record in vm.selectedObject.records" ng-click="vm.setSelectedRecord($index)" class="list-group-item {{(vm.selectedRecord.name === record.name) ? 'active' :''}}">{{record.name}}</a>
+    </div>   
+</div>

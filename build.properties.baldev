@@ -1,0 +1,10 @@
+# build.properties 
+#  This is a sample text
+# Please rename this file as build.properties after you edit and add your creds
+#
+# Specify the login credentials for the desired Salesforce organization
+#
+
+sf.serverurl = login.salesforce.com
+sf.username = baldevr-mvg6@force.com
+sf.password = c4ny0ugu355

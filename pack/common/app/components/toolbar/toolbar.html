@@ -1,0 +1,15 @@
+<div class="main-toolbar" ng-class="vm.states.activeRequest" >
+    <div class="main-button-bar" ng-class="vm.states.showToolbar">
+        <div class="new-requests" ng-class="vm.states.activeRequest" ng-click="vm.toogleActive('new-request');">
+            <div class="file-plus" ng-click="vm.toogleActive('new-request');" >+</div>
+            <i class="fa fa-file" ng-click="vm.toogleActive('new-request');" ></i>
+        </div>
+        <div class="list-view" ng-class="vm.states.activeListView" ng-click="vm.toogleActive('list-view');">
+            <i class="fa fa-list" ng-click="vm.toogleActive('list-view');" ></i>
+        </div>
+        <div class="chart-view" ng-class="vm.states.activeChartView" ng-click="vm.toogleActive('chart-view');">
+            <i class="fa fa-pie-chart" ng-click="vm.toogleActive('chart-view');" ></i>
+        </div>
+    </div>
+    <new-request states="vm.states" show-list="vm.showList" selected-attachments="vm.selectedAttachments"></new-request>
+</div>

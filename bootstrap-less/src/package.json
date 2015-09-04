@@ -1,0 +1,38 @@
+{
+  "name": "bootstrap-less",
+  "version": "3.3.5",
+  "description": "less files for bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:distros/bootstrap-less.git"
+  },
+  "main": "bootstrap/index.less",
+  "gitHead": "cb3f91fe42e540d1df509828cfb90e2fea748aba",
+  "bugs": {
+    "url": "https://github.com/distros/bootstrap-less/issues"
+  },
+  "homepage": "https://github.com/distros/bootstrap-less",
+  "_id": "bootstrap-less@3.3.5",
+  "scripts": {},
+  "_shasum": "6dacffff5c8b6c8dc8cc73688378be122553a38c",
+  "_from": "bootstrap-less@*",
+  "_npmVersion": "2.5.1",
+  "_nodeVersion": "0.12.0",
+  "_npmUser": {
+    "name": "aaike",
+    "email": "aaikevr@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "aaike",
+      "email": "aaikevr@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "6dacffff5c8b6c8dc8cc73688378be122553a38c",
+    "tarball": "http://registry.npmjs.org/bootstrap-less/-/bootstrap-less-3.3.5.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/bootstrap-less/-/bootstrap-less-3.3.5.tgz",
+  "readme": "ERROR: No README data found!"
+}

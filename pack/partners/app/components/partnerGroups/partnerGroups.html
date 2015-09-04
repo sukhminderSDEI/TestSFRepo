@@ -1,0 +1,41 @@
+<div class="groups-container">
+	<div class="groups-header">
+		<div class="glyphicon glyphicon-menu-left back" onclick="mainVm.setScreen(mainVm.ScreenEnum.Main)"></div>
+		<h3 class="header-left">Your groups</h3>
+		<a class="new-group" onclick="mainVm.setScreen(mainVm.ScreenEnum.AddGroup)">New Group</a>
+	</div>
+	<div ng-if="!pvm.groups[0]">
+    	<span class="no-tasks">There are currently no groups</span>
+	</div>
+	<div ng-if="pvm.groups[0]">
+		<ul class="list">
+			<li class="item" ng-repeat="group in pvm.groups">
+				<div class="group" ng-class="{selected: pvm.selectedGroup == group, unselected: pvm.selectedGroup != null && pvm.selectedGroup != group}" ng-click="pvm.toggleSelection(group)">
+					<input type="text" class="name" placeholder="Name your group" ng-if="group.isNew" ng-model="group.Name" ng-blur="pvm.endCopy(group)">
+					<span ng-if="!group.isNew">{{group.Name}} <span class="amount">({{group.members.length}})</span></span>
+					<div class="glyphicon glyphicon-menu-right details"></div>
+					<div class="controls" ng-class="{'visible': pvm.selectedGroup == group}">
+						<div class="glyphicon glyphicon-remove control" ng-click="pvm.openDeleteDialog(group); $event.stopPropagation()"></div>
+						<div class="glyphicon glyphicon-edit control" ng-click="pvm.startCopy(group); $event.stopPropagation()"></div>
+						<div class="glyphicon glyphicon-pencil control" onclick="mainVm.setScreen(mainVm.ScreenEnum.EditGroup);evm.init(window.pvm.selectedGroup)"></div>
+					</div>
+				</div>
+				<div class="members" ng-class="{visible: pvm.selectedGroup == group, 'no-members': !group.members[0]}">
+				    <span ng-if="!group.members[0]" class="no-items">There are currently no members</span>
+					<ul ng-if="group.members[0]" class="list" ng-class="{'visible': pvm.selectedGroup == group}">
+						<li ng-repeat="member in group.members" class="member">
+							<div class="logo">
+							  <img ng-if="member.logoUrl" alt="No image" ng-src="{{member.logoUrl}}"/>
+							  <img ng-if="!member.logoUrl" alt="No image" src="https://developer.salesforce.com/resource/images/home-col-33x33-cloud.png"/>
+							</div>
+							<div class="info">
+								<div class="name">{{member.Name}}</div>
+								<div class="address">{{pvm.memberAddress(member)}}</div>
+							</div>			
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

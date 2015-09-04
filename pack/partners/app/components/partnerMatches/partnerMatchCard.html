@@ -1,0 +1,34 @@
+<div class="match-card">
+	<h4>{{vm.matchCard.name}}</h4>
+	<div>
+		<p>{{vm.matchCard.address.street}}</p>
+		<p>{{vm.matchCard.address2}}</p>
+		<p>{{vm.matchCard.address.city + ", " + vm.matchCard.address.state + " " + vm.matchCard.address.postCode}}</p>
+	</div>
+	<div class="contacts">
+		<p>
+			<span class="glyphicon glyphicon-envelope icon"></span>
+			<span class="email">{{vm.matchCard.emailDomains.length != 0 ? vm.matchCard.emailDomains[0] : ' ..'}}</span>
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-earphone"></span>
+			<span>{{vm.matchCard.email.length != 0 ? vm.matchCard.phone : ' ..'}}</span>
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-file"></span>
+			<span>{{vm.matchCard.fax.length != 0 ? vm.matchCard.fax : ' ..'}}</span>
+		</p>
+	</div>
+	<div>
+		<p><span class="id">ICIX ID:</span>{{vm.matchCard.ubeId.length != 0 ? vm.matchCard.ubeId : '--'}}</p>
+		<p><span class="id">Universal ID:</span>{{vm.matchCard.universalIds.length != 0 ? vm.matchCard.universalIds[0].type + " " + vm.matchCard.universalIds[0].value: '--'}}</p>
+	</div>
+	<div class="footer">
+		<button class="btn btn-create" ng-if="vm.matchCard.matchingPercentage == 0">Create</button>
+		<button class="btn btn-connect" ng-if="vm.matchCard.matchingPercentage > 0">Connect</button>
+		<div ng-show="vm.matchCard.matchingPercentage > 0" class="match">
+			<p>match</p>
+			<p class="percentage" ng-class="{green: vm.matchCard.matchingPercentage > 79, orange: vm.matchCard.matchingPercentage > 40 && vm.matchCard.matchingPercentage < 80, red: vm.matchCard.matchingPercentage < 40}"><span>{{vm.matchCard.matchingPercentage}}</span>%</p>
+		</div>
+	</div>
+</div>

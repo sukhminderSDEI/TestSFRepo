@@ -1,0 +1,50 @@
+<div class="main-field">
+    <form>
+        <div class="well well-lg col-xs-12">
+            <div class="page-header">
+                <h4>Field - {{vm.selectedField.fullName}}</h4>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Field FullName</label>
+                <input ng-model="vm.selectedField.fullName" type="text" class="form-control input-sm"  ng-change="vm.setStateToActive();" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Field Type</label>
+                <select ng-model="vm.selectedField.type" ng-change="vm.setStateToActive();" class="form-control input-sm">
+                  <option value="Text">Text</option>
+                  <option value="TextArea">TextArea</option>
+                  <option value="Number">Number</option>
+                  <option value="Percent">Percent</option>
+                  <option value="Checkbox">Checkbox</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Field Label</label>
+                <input ng-model="vm.selectedField.label" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter label">  
+            </div>
+            <div ng-show="vm.selectedField.type === 'Text' || vm.selectedField.type === 'TextArea'" class="form-group">
+                <label class="control-label">Field Length</label> 
+                <input ng-model="vm.selectedField.length" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();"  placeholder="Enter the length of the text field or textarea ">
+            </div>
+            <div ng-show="vm.selectedField.type === 'Number' || vm.selectedField.type === 'Percent'" class="form-group">
+                <label class="control-label">Field Percision</label>
+                <input ng-model="vm.selectedField.percision" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter the percision">
+            </div>
+            <div ng-show="vm.selectedField.type === 'Number' || vm.selectedField.type === 'Percent'" class="form-group">
+                <label class="control-label">Field Scale</label>
+                <input ng-model="vm.selectedField.scale" type="text" class="form-control input-sm" ng-change="vm.setStateToActive();" placeholder="Enter the Scale">
+            </div>
+            <div class="form-group">
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="vm.selectedField.required" id="requried" value="option1"> Required
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="vm.selectedField.unique" id="unique" value="option2"> Unique
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="vm.selectedField.externalId" id="externalid" value="option3"> ExternalID
+                </label>
+            </div>        
+        </div>
+    </form>
+</div>

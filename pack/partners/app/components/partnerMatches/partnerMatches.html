@@ -1,0 +1,12 @@
+<div class="partner-matches-container">
+	<div class="header">
+		<div class="header-text">
+			<h3>We found {{vm.partnerMatches.length}} matches in the ICIX Network</h3>
+			<a class="edit" onclick="mainVm.setScreen(mainVm.ScreenEnum.PartnerAdd)">Edit partner information</a>
+		</div>
+		<button class="close" onclick="mainVm.setScreen(mainVm.ScreenEnum.Main); avm.init()"></button>
+	</div>
+	<div class="partner-matches">
+		<partner-match-card ng-repeat="matchCard in mvm.partnerMatches" match-card="matchCard"></partner-match-card>
+	</div>
+</div>

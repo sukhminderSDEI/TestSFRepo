@@ -1,0 +1,12 @@
+<div>
+	<div class="header">
+		<button class="close" ng-click="pvm.closeDeleteDialog()"></button>
+	</div>
+	<div class="select">
+		<p>Are you shure you want to delete <span class="name">{{group.Name}}</span>?</p>
+	</div>
+	<div class="buttons">
+		<button class="btn btn-primary" ng-click="pvm.delete(group)">Send</button>
+		<button class="btn btn-link" ng-click="pvm.closeDeleteDialog()">Cancel</button>
+	</div>
+</div>

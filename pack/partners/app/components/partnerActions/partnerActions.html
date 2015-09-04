@@ -1,0 +1,14 @@
+ <div class="partner-actions">
+	<div class="col-md-6">
+		<div class="action" onclick="mainVm.setScreen(mainVm.ScreenEnum.PartnerAdd)">
+	        <img src="{{vm.baseImageUrl}}/images/add_partner.png"></img>
+			<p>Add a Partner</p>
+		</div>
+	</div>
+	<div class="col-md-6" onclick="mainVm.setScreen(mainVm.ScreenEnum.PartnerGroups)">
+		<div class="action">
+	        <img src="{{vm.baseImageUrl}}/images/partner_groups.png"></img>
+		    <p>Your groups ({{vm.groups.length}})</p>
+	    </div>
+	</div>
+</div>

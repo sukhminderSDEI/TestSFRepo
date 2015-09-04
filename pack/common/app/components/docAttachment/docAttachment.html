@@ -1,0 +1,33 @@
+<div class="doc-attachment-box modal-show-hide" ng-show="vm.showList.value">
+	<div class="doc-attachment-types centered"> 
+		<div class="title">
+			<!-- <a class="close-icon glyphicon glyphicon-remove" ng-click="vm.close()"></a> -->
+			<div class="exit-button-modal-top-right">       
+            	<div class="exit-button-modal" ng-click="vm.close()">&times;</div>
+        	</div>
+			Target documents {{vm.selectedType !== null ? ' - ' + vm.selectedType : ''}}
+		</div>
+
+		<div ng-show="!vm.selectedType" class="type-box">
+			<div class="doc-attachment-type" ng-repeat="type in vm.targetDocumentTypes" ng-class="{'left-border': $index % 3, 'bottom-border': $index<3}">
+				<div class="text-type-box">
+					<a ng-click="vm.selectDocType(type)">{{type}}</a>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="vm.selectedType">
+			<div class="doc-list-box">
+				<div class="doc-attachment" ng-repeat="doc in vm.documentList">
+					<input class="doc-checkbox" type="checkbox" id="cb_doc_{{$index}}" ng-model="vm.selectedDocs[doc]"/>
+					<label class="doc-labels" for="cb_doc_{{$index}}">{{doc}}</label>
+				</div>
+			</div>
+			<div>
+				<button class="floatL btn white-button modal-button" ng-click="vm.back()">Back</button>
+				<button class="floatR btn blue-button modal-button" ng-click="vm.attach()">Attach</button>
+				<span class="floatR selected-count">{{vm.getSelection().length}} selected </span>
+			</div>
+		</div>
+	</div>
+</div>

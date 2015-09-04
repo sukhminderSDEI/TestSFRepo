@@ -1,0 +1,5 @@
+<div class="main-fields">
+    <div class="list-group">
+          <a ng-repeat="field in vm.selectedObject.fields" ng-click="vm.setSelectedField($index)" class="list-group-item {{(vm.selectedField.fullName === field.fullName) ? 'active' :''}}">{{field.label}}</a>
+    </div>   
+</div>

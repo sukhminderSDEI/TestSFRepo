@@ -1,0 +1,133 @@
+@light-grey: #C5C9CD;
+
+.add-partner-form{
+	margin: 0 20px;
+
+	::-webkit-input-placeholder {
+		color: @light-grey;
+	}
+ 	/* Firefox 18- */
+	:-moz-placeholder {
+		color: @light-grey;  
+	}
+  	/* Firefox 19+ */
+	::-moz-placeholder {
+		color: @light-grey;  
+	}
+
+	:-ms-input-placeholder { 
+		color: @light-grey;
+	}
+
+	.form-control{
+		width: inherit;
+	}
+
+	.big{
+		width: 450px;
+	}
+
+	.medium{
+		width: 300px;
+	}
+
+	.small{
+		width: 140px;
+	}
+
+	.x-small{
+		width: 60px;
+	}
+
+	.xx-small{
+		width: 55px;
+	}
+
+	.left-far{
+		margin-right: 10px;
+	}
+
+	.left-close{
+		margin-right: 5px;
+	}
+
+	.header{
+		height: 30px;
+
+		h3 {
+			font-size: 24px;
+			margin: 0;
+			float: left;
+		}
+
+		.close{
+			border: 1px solid transparent;				
+			width: 30px;
+			height: 30px;
+			margin: -4px 20px 0 0;
+			outline: 0px;
+			background: #fff no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuNWWFMmUAAAGKSURBVEhLtZXLTsMwEEVDpPIoFCoEEhIbWCA2sIAN/79hwYLvgLZ8Q7gT22EyndozpjnSNPHrnsipnAZ07x+fHWgsVctq89N+rdZv5EKza9JNvE4CpAeQvo5c/CmmkENKjmfuoAdJW/AyhZyk3+vNw5Y0QQ1MeNq3HLl3QhoGOCRHPe5LjqxbVxYW3P9Xjt27rspwP20E60i6rJImEHLDA9D++1MoROlCrGnDqBMsHG0Z2rMwMiZK55a5A6XTCAGXIvA4jASi9Cg3R8VyDCLoQgSfxn6SzsTYnMaKWM9fBJ4JwTmkrehb9JMteA5+BJ9wkZAu+0lWvF8cCA6TkCpKr/pBBcrXKvw4kWIeaC03SUpXfi+DS+WCi7C9LQXUys1IKfWlkBq5CSEdjk4e5JUX2SUlZJhHniUnJbRAq1wFEikNAwItkMoiV+ELQ4+OFpiqJN/CKiW0QF45+QC9Q4+UkGFa7ZL3QDr6yoTeMjwoV5q8WkqkEEtJueudSniwpaSrSkpo4aUKrqb7BW6gxzc8Y5Z5AAAAAElFTkSuQmCC)
+		}
+	}
+
+	.block{
+		input, select{
+			margin-top: 10px;
+		}
+	}
+
+	.row{
+		margin-top: 20px; 
+		margin-right: 0;
+		margin-left: 0;
+
+		.cell{
+			display: inline-block;
+		}		
+
+		.left-attached{
+			float: left;
+
+			select{
+				border-bottom-right-radius: 0px;
+				border-top-right-radius: 0px;
+			}
+		}
+
+		.right-attached{
+			border-bottom-left-radius: 0px;
+			border-top-left-radius: 0px;
+			border-left: none;
+		}
+	}
+
+	label{
+		font-weight: normal;
+	}
+
+	.select{
+		position: relative;
+
+		select{
+		    padding-right: 30px;
+			-webkit-appearance:none;
+			-moz-appearance: none;
+
+			::-ms-expand {
+	            border:none;
+	            background:#fff;
+		    }
+		}
+
+		.toggle{
+			position: absolute;
+	    	top: 14px;
+    		right: 10px;
+		}
+	}
+
+	.action{ 
+	    width: 120px;
+		margin-top: 25px;
+	}
+}

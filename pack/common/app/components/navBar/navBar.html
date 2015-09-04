@@ -1,0 +1,81 @@
+<span class="navbar-adjust">
+    <div class="nav-spacer"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="link in vm.links" class="navbar-link">
+                        <div>{{link.title}}</div>
+                        <a ng-href="{{link.linkUrl}}" target="_self" ng-class="{active: vm.isActive(link.title)}">{{link.title}}</a>
+                    </li>
+
+                    <!-- <li class="navbar-link">
+                        <div>ICIX DASHBOARD</div>
+                        <a ng-href="/apex/home_non_spa" target="_self" >ICIX&nbsp;DASHBOARD</a>
+                    </li>
+                    <li class="navbar-link" >
+                        <div>PARTNERS</div>
+                        <a ng-href="/apex/partners" target="_self" >PARTNERS</a>
+                    </li>
+                    <li class="navbar-link" >
+                        <div>PRODUCTS</div>
+                        <a ng-href="/apex/products" target="_self" >PRODUCTS</a>
+                    </li>
+                    <li class="navbar-link" >
+                         <div>REQUESTS</div>
+                        <a ng-href="/apex/requests" target="_self" >REQUESTS</a>
+                    </li> -->
+                </ul>
+                <!-- this should be its own component -->
+               <div class="nav-search-bar" ng-mouseover="vm.showSearch = true" ng-mouseleave="vm.showSearch = false">
+                    <div class="search-input-section">
+                        <div ng-show="vm.showSearch === false" class="icon-holder">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                        <div ng-show="vm.showSearch === true" class="icon-holder" style="color:white">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                        <div ng-show="vm.showSearch === true" class="search-holder">
+                            <input type="text" class="search-input form-control" ></input>
+                        </div>
+                        <div ng-show="vm.showSearch === true" class="clear-search-holder">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div ng-show="false" class="search-options-section">
+                    </div>
+                </div>
+                <ul ng-show="vm.showSearch === false" class="nav navbar-nav profile-dropdown">
+                    <li class="navbar-link profile-list">
+                        <a href="apex/home" role="button" >Hi,&nbsp;Matthew<span class="caret profile-caret"></span></a>
+                        <!-- <ul class="profile-dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul> -->
+                    </li>
+                </ul> 
+
+                
+
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+
+    </nav>
+</span>

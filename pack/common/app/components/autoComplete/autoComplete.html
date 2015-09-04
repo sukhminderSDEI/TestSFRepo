@@ -1,0 +1,25 @@
+<div class="main-auto-complete">
+    <div tabindex="-1" class="input-container stay-open" ng-click="vm.showResults = true; focusOnInput(); focusOnResults();">
+        <div tabindex="-1" class="active-tag stay-open" ng-repeat="item in vm.selectedItems track by $index">
+            <span class="tag-text stay-open">{{item.name}}<i  tabindex="-1" class="fa fa-times stay-open" ng-click="vm.selectedItems.splice($index, 1); vm.resetDisabled(item.id);"></i></span>
+        </div>
+        <input  ng-keyup="searchOnKeyUp();" name="searchInput" class="input-search form-control stay-open" type="text" ng-keyup="vm.showResults = true; focusOnResults();"></input>
+    </div>
+    <div style="clear:both;"></div>
+    <div tabindex="-1" class="results-container sample-show-hide" name="results" ng-show="vm.showResults && vm.recipients.length > 0 && vm.disabledCount !== vm.recipients.length" ng-blur="vm.processBlur($event)" >
+        <div class="list-group">
+            <a ng-repeat="recipient in vm.recipients track by $index" ng-hide="recipient.disabled" ng-click="vm.addToSelection($index);" class="list-group-item animate-repeat" >
+                <div class="image-box" ng-class="recipient.status">
+                    <span class="helper" ></span>
+                    <img class="recipient-logo" ng-src="{{vm.baseImageUrl + recipient.logoUrl}}"></img>
+                </div>
+                <div class="title ellipsis" ng-class="recipient.status">{{recipient.name}}</div>
+                <div class="address ellipsis" ng-class="recipient.status">{{recipient.address}}</div>
+                <div class="icon-box">
+                    <i ng-show="recipient.status === 'noncompliant'"class="fa fa-exclamation-triangle"></i>
+                </div>
+                <div style="clear:both;"></div>
+            </a>
+        </div>  
+    </div>
+</div>

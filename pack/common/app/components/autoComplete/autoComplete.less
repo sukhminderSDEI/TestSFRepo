@@ -1,0 +1,205 @@
+.main-auto-complete{
+
+    .input-container{
+        display:inline;
+        width: 402px;
+        height: auto;
+        border: 1px solid #cccccc;
+        float: left;
+        clear: both;
+        border-radius: 6px;
+    }
+
+    /*todo add this to an active state*/
+    .input-container:focus{
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);            
+    }
+
+    .tag-text{
+        float:left;
+        border-style: solid;
+        border-color: #DCDCDC;
+        border-width: 1px;
+        border-radius: 4px;
+        padding: 2px;
+        font-size: 12px;
+        font-color: #333;
+        color: #333;
+        background-color: #F2F4F4;
+        margin: 6px;
+    }
+
+    .tag-text i{
+        padding-left: 3px;
+    }
+
+    .input-search.form-control {
+        width: auto;
+        height: 100%;
+        line-height: 4px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        padding-top: 4px;
+        padding-bottom: 0px;
+        padding-left: 5px;
+        border-style: none;
+        box-shadow: none;
+        float: left;
+    }
+
+    .form-control:focus {
+        border-color: transparent;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102, 175, 233, 0);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0), 0 0 8px rgba(102, 175, 233, 0);
+    }
+
+    /*bootstrap overrides*/
+    .list-group {
+        margin-bottom: 0px; 
+    }
+
+    .list-group-item {
+        position: relative;
+        display: block;
+        padding: 8px 8px;
+        margin-bottom: -1px;
+        background-color: #ffffff;
+        border-bottom-width: 1px;
+        border-bottom-color: #dddddd;
+        border-bottom-style: solid;
+        border-right-style: none;
+        border-left-style: none;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px; 
+        border-top-left-radius: 0px; 
+    }
+
+    .list-group-item:last-child {
+        margin-bottom: 0;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .results-container{
+        position: absolute;
+        width: 402px;
+        max-height: 270px;
+        border: 1px solid rgb(142, 202, 241);
+        -webkit-box-shadow: 0px 0px 16px -3px rgb(142, 202, 241);
+        -moz-box-shadow: 0px 0px 16px -3px rgb(142, 202, 241);
+        box-shadow: 0px 0px 16px -3px rgb(142, 202, 241);
+        float: left;
+        border-radius: 6px;
+        background-color: white;
+        margin-top: 10px;
+        overflow-y: auto;
+        cursor: pointer;
+    }
+
+    /*animations*/
+
+    .sample-show-hide {
+        -webkit-transition:all linear 0.3s;
+        transition:all linear 0.3s;
+    }
+
+    .sample-show-hide.ng-hide {
+        opacity:0;
+    }
+
+    .animate-repeat.ng-move,
+    .animate-repeat.ng-enter,
+    .animate-repeat.ng-leave {
+      -webkit-transition:all linear 0.5s;
+      transition:all linear 0.5s;
+    }
+
+    .animate-repeat.ng-leave.ng-leave-active,
+    .animate-repeat.ng-move,
+    .animate-repeat.ng-enter {
+      opacity:0;
+      max-height:0;
+    }
+
+    .animate-repeat.ng-leave,
+    .animate-repeat.ng-move.ng-move-active,
+    .animate-repeat.ng-enter.ng-enter-active {
+      opacity:1;
+      max-height:75px;
+    }
+
+
+    .image-box{
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        white-space: nowrap;
+        text-align: center; 
+        margin: 0;
+        float:left;
+    }
+
+    .recipient-logo{
+        height: auto;
+        width: 100%;
+        vertical-align: middle;
+        margin-left: -5px;
+    }
+
+    .helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .title{
+        font-size: 12px;
+        font-weight: bold;
+        width: 275px;
+        padding-left: 10px;
+        float: left;
+        margin-top: 11px;
+    }
+
+    .address{
+        width: 275px;
+        padding-left: 10px;
+        float: left;
+        font-size: 10px;
+    }
+
+    .noncompliant{
+        color: rgb(204, 0, 0);
+        border-color: rgb(204, 0, 0);
+    }
+
+    .icon-box{
+        height: 100%;
+        line-height: 100%;
+        float: right;
+        margin-top: -9px;
+        margin-right: 7px;
+    }
+
+    .fa-exclamation-triangle{
+        color: rgb(204, 0, 0);
+        font-size: 20px;
+    }
+
+   /* should be moved into global style*/
+    .ellipsis {
+        text-overflow: ellipsis;
+
+          /* Required for text-overflow to do anything */
+          white-space: nowrap;
+          overflow: hidden;
+    }
+    
+}

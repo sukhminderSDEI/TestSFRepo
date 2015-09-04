@@ -1,0 +1,164 @@
+@light-grey: #C5C9CD;
+@blue: #3B97D3;
+
+.partner-list-container
+{
+	margin: 0 24px 0 30px;
+	width: 380px; 
+
+	h3{
+		margin-bottom: 14px;
+		color: #717883;
+		font-size: 21px;  
+		font-weight: 400;
+
+		.counter{
+			margin-left: 8px;
+		}
+	}
+
+	.search-box{
+		position: relative;
+	 	color: @light-grey;
+	 	margin-bottom: 19px;
+
+	 	:focus{
+	 		box-shadow: none;
+	 	}
+	
+		input{
+			padding-left: 38px; 
+			border: 2px #636B77 solid;
+			height: 44px;
+		}
+
+		.searching-icon{
+			color: @blue
+		}
+
+		.searching-field{
+			border-color: @blue;
+		}
+
+		.reset{
+			border:1px solid transparent;
+			display: inline-block;
+			vertical-align: middle;
+			outline: 0;
+			cursor: pointer;
+			width: 11px;
+			height: 11px;
+			position: absolute;
+			z-index:1;
+			right: 15px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			padding: 2px;
+			text-align: center;
+			background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuNWWFMmUAAABTSURBVChTY1i2auP/b9++/wcCBmwYJAdSA2dgUwyTA7FRBJAVo4th6AbR6IpQFIIwSGLR8nVgjKwIhElXCJIgaDU2CXQxrIpgGCYHYhMZ4Bv/AwBIhEXO9YNsuQAAAABJRU5ErkJggg==) no-repeat;
+		}
+	}
+
+	::-webkit-input-placeholder {
+		color: @light-grey;
+	}
+ 	/* Firefox 18- */
+	:-moz-placeholder {
+		color: @light-grey;  
+	}
+  	/* Firefox 19+ */
+	::-moz-placeholder {
+		color: @light-grey;  
+	}
+
+	:-ms-input-placeholder { 
+		color: @light-grey;
+	}
+
+	.search-box .glyphicon {
+		position: absolute;
+		padding: 15px;
+		pointer-events: none;
+		left:  0px;
+	}
+
+	.no-partners
+	{
+		color: #717883;
+		font-size: 12px; 
+	}
+
+	.partner-list{
+		border: 1px solid @light-grey;
+	    border-radius: 5px;
+		color: @light-grey;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		.partner{
+			padding: 10px 14px;
+    		border-bottom: 1px solid @light-grey;
+
+			.logo{
+				position: relative;
+				height: 55px;
+				width: 55px;
+				float: left;
+				margin-right: 15px;
+				text-align: center;
+
+				img { 
+				    height: 100%;
+				    position: absolute;
+				    left: 50%;
+				    top: 50%;
+				    margin-left: -50%;
+				    margin-top: -50%;
+				}
+			}
+
+			.info{
+				.name{
+					margin-top: 4px;
+					color: #000;
+					font-weight: bold;
+					font-size: 16px;
+				}
+
+				.details{
+					font-size: 12px;
+
+					.relationship{
+						margin-left: 15px;
+
+						.status{
+							font-weight: bold;
+						}
+
+						.active{
+							color: #C00;
+						}
+
+						.pending{
+							color: #F47E1F;
+						}
+
+						.inactive{
+							color: #7D7D7D;
+						}
+
+						.suspended{
+							color: #C00;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.partner:last-child {
+	    border-bottom: none;
+	}
+}
